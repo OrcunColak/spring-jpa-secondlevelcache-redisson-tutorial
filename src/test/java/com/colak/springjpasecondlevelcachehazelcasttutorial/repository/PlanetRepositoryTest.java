@@ -4,8 +4,8 @@ import com.colak.springjpasecondlevelcachehazelcasttutorial.jpa.Planet;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -17,15 +17,25 @@ class PlanetRepositoryTest {
     private PlanetRepository repository;
 
     @Test
-    void findAll() {
-        List<Planet> all = repository.findAll();
-        assertThat(all).isNotEmpty();
+    void findById() {
+        Optional<Planet> byId  = repository.findById(1L);
+        assertThat(byId).isPresent();
 
         // Fo L2 hit we need to find by id
-        Optional<Planet> byId = repository.findById(1L);
+        byId = repository.findById(1L);
         assertThat(byId).isPresent();
 
         Planet planet = byId.get();
         assertThat(planet).isNotNull();
+    }
+
+    @Test
+    @Transactional
+    void findAll() {
+        Iterable<Planet> all = repository.findAll();
+        assertThat(all).isNotEmpty();
+
+        all = repository.findAll();
+        assertThat(all).isNotEmpty();
     }
 }
