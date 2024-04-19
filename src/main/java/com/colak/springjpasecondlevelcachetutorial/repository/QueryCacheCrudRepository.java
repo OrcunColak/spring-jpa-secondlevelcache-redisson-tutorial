@@ -1,4 +1,4 @@
-package com.colak.springjpasecondlevelcachehazelcasttutorial.repository;
+package com.colak.springjpasecondlevelcachetutorial.repository;
 
 import jakarta.persistence.QueryHint;
 import org.hibernate.jpa.HibernateHints;

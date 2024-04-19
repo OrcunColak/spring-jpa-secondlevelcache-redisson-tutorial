@@ -1,4 +1,4 @@
-package com.colak.springjpasecondlevelcachehazelcasttutorial.jpa;
+package com.colak.springjpasecondlevelcachetutorial.jpa;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

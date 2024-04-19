@@ -1,4 +1,4 @@
-package com.colak.springjpasecondlevelcachehazelcasttutorial;
+package com.colak.springjpasecondlevelcachetutorial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
